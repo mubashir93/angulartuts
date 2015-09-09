@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+<!--<link href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>-->
+<!--<link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>-->
+<!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"/>-->
+<script src="bower_components/angular/angular.js"></script>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <button ng-click="name()"> {{ fullname }}</button>
+    </div>
+    <div ng-controller="myCtrl2">
+        <button ng-click="name()"> {{ fullname }}</button>
+    </div>
+    <div ng-controller="myCtrl3">
+        <button ng-click="name()"> {{ fullname }}</button>
+    </div>
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function ($scope) {
+        $scope.firstname = "John";
+        $scope.lastname = "Doe";
+        $scope.fullname = "uga booga";
+        $scope.name = function () {
+            if ($scope.fullname === "uga booga")
+                $scope.fullname = $scope.firstname + " " + $scope.lastname;
+            else
+                $scope.fullname = "uga booga";
+        }
+    });
+    app.controller("myCtrl2", function ($scope) {
+        $scope.firstname = "lucky";
+        $scope.lastname = "you";
+        $scope.fullname = "uga booga";
+        $scope.name = function () {
+            if ($scope.fullname === "uga booga")
+                $scope.fullname = $scope.firstname + " " + $scope.lastname;
+            else
+                $scope.fullname = "uga booga";
+        }
+    });
+    app.controller("myCtrl3", function ($scope) {
+        $scope.firstname = "lucky";
+        $scope.lastname = "me";
+        $scope.fullname = "uga booga";
+        $scope.name = function () {
+            if ($scope.fullname === "uga booga")
+                $scope.fullname = $scope.firstname + " " + $scope.lastname;
+            else
+                $scope.fullname = "uga booga";
+        }
+    });
+</script>
+</body>
+</html>
